@@ -16,6 +16,10 @@ class WatchesController < ApplicationController
     @watch.save
     redirect_to watch_path(@watch)
   end
+
+  def top
+    @watch = Watches.sample
+  end
 end
 
 private
