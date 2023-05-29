@@ -1,12 +1,17 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+      <%= image_tag "https://previews.123rf.com/images/orlydesign/orlydesign1610/orlydesign161000026/66539287-hand-der-m%C3%A4nner-klassische-armbanduhr-symbol-isolierte-armbanduhr-schwarz-illustration-watch-logo.jpg" %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
+    <%= link_to "Home", root_path, class: "nav-link" %>
+    <%= link_to "Top Watches", top_watches_path, class: "nav-link" %>
+    <%= link_to "Something", new_user_session_path, class: "nav-link" %>
+    <%= link_to "My Orders", new_user_session_path, class: "nav-link" %>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
