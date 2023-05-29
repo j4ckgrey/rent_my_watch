@@ -18,7 +18,7 @@ class WatchesController < ApplicationController
   end
 
   def top
-    @watch = Watches.sample
+    @watches = Watches.sample
   end
 end
 
