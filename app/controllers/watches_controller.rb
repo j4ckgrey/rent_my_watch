@@ -1,6 +1,6 @@
 class WatchesController < ApplicationController
   def index
-    @watches = Watches.all
+    @watches = Watch.all
   end
 
   def show
@@ -18,7 +18,7 @@ class WatchesController < ApplicationController
   end
 
   def top
-    @watch = Watches.sample
+    @watch = Watch.all.sample
   end
 end
 
