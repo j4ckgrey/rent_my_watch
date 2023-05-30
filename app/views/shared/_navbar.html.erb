@@ -1,16 +1,23 @@
 <div class="navbar navbar-expand-sm bg-dark navbar-lewagon text-white">
   <div class="container-fluid">
     <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://d1nhio0ox7pgb.cloudfront.net/_img/m_collection_png/512x512/plain/wristwatch.png" %>
+      <i class="bi bi-watch text-white ps-4" style="font-size: 25px"></i>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <%= link_to "Home", root_path, class: "nav-link" %>
-    <%= link_to "Something", new_user_session_path, class: "nav-link" %>
-    <%= link_to "My Orders", new_user_session_path, class: "nav-link" %>
+    <%= link_to "Home", class: "navbar-brand ps-5" do %>
+      <i class="fa-solid fa-house" style="color: #ffffff;"></i>
+    <% end %>
+
+    <div class="input-group rounded px-5">
+      <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+      <span class="input-group-text border-0" id="search-addon">
+        <i class="fas fa-search"></i>
+      </span>
+    </div>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
@@ -21,9 +28,9 @@
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Messages", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "Dashboard", "#", class: "dropdown-item" %>
+              <%= link_to "My Rents", "#", class: "dropdown-item" %>
+              <%= link_to "My Watches", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
