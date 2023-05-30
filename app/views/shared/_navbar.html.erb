@@ -28,9 +28,8 @@
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Dashboard", "#", class: "dropdown-item" %>
-              <%= link_to "My Rents", new_watch_path, class: "dropdown-item" %>
-              <%= link_to "My Watches", "#", class: "dropdown-item" %>
+              <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
+              <%= link_to "Offer new Watch", new_watch_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
