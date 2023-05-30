@@ -1,19 +1,22 @@
-
-<div class="container bg-secondary">
-  <h1 class ="text-center text-light">Welcome to Rent My Watch</h1>
-  <div class="input-group rounded">
-    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-    <span class="input-group-text border-0" id="search-addon">
-      <i class="fas fa-search"></i>
-    </span>
-  </div>
+<div class=" container bg-light py-5">
+  <h1 class ="text-center"><span data-controller="typed-js"></h1>
   <div>
-    <h1 style="border:1px solid white;margin-left:auto;margin-right:auto;color:white;">Watch Collection</h1>
-    <% @watches.each do |watch| %>
-     <div class="col text-light">
-      <div class="p-3">
-        <%= link_to watch.name, watch_path(watch) %></div>
+    <h2 class ="my-5 text-center border border-3 border-dark rounded-3">Watch Collection</h1>
+    <div class="input-group rounded">
+      <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+      <span class="input-group-text border-0" id="search-addon">
+        <i class="fas fa-search"></i>
+      </span>
     </div>
-    <% end %>
+    <div class="row">
+      <% @watches.each do |watch| %>
+        <div class="col-6 col-sm-4 d-flex justify-content-center">
+          <div class="p-3 text-center">
+            <img src="https://wempe-media.com/media/image/m126619lb-0003_wempe_02.png?id=901573bcdd0049eb6413d02cdd15cab7" alt="Test-Image" class="img-thumbnail">
+            <%= link_to watch.name, watch_path(watch) %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
