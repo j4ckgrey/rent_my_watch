@@ -28,5 +28,5 @@ end
 private
 
 def watch_params
-  params.require(:watch).permit(:name, :model, :brand, :photo)
+  params.require(:watch).permit(:name, :model, :brand, :photo, :description)
 end
