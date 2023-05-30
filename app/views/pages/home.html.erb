@@ -1,6 +1,5 @@
 
-<div class="container bg-secondary" style="
-    background-image: url('https://i.pinimg.com/originals/54/ba/1a/54ba1aebeb5c5c92105f430009db074c.jpg');">
+<div class="container bg-secondary" style="">
   <h1 class ="text-center text-light">Welcome to Rent My Watch</h1>
   <div class="input-group rounded">
     <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
@@ -8,22 +7,13 @@
       <i class="fas fa-search"></i>
     </span>
   </div>
-<<<<<<< HEAD
-  <% @watches.each do |watch| %>
-    <%= watch %>
-  <% end %>
-=======
   <div>
     <h1 style="border:1px solid white;margin-left:auto;margin-right:auto;color:white;">Watch Collection</h1>
     <% @watches.each do |watch| %>
      <div class="col text-light">
       <div class="p-3">
-        <%=watch.name%></div>
+        <%= link_to watch.name, watch_path(watch) %></div>
     </div>
-    <%end %>
+    <% end %>
   </div>
-
-
-
->>>>>>> 64cf42c6c476a98d4a1397f5d7767eba56042a2d
 </div>
