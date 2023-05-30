@@ -2,4 +2,5 @@
   <li><%= @watch.name %></li>
   <li><%= @watch.model %></li>
   <li><%= @watch.brand %></li>
+  <li><%= cl_image_tag @watch.photo.key, height: 300, width: 400, crop: :fill %></li>
 </ul>
