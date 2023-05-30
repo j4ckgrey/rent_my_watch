@@ -20,8 +20,10 @@ class WatchesController < ApplicationController
     end
   end
 
-  def top
-    @watches = Watches.sample
+  def destroy
+    @watch = Watch.find(params[:id])
+    @watch.destroy
+    redirect_to root_path, status: :see_other
   end
 end
 
