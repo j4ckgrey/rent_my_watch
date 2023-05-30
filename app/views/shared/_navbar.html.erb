@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm bg-dark navbar-lewagon text-white">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand" do %>
       <i class="bi bi-watch text-white ps-4" style="font-size: 25px"></i>
     <% end %>
 
@@ -8,7 +8,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <%= link_to "Home", class: "navbar-brand ps-5" do %>
+    <%= link_to root_path, class: "navbar-brand ps-5" do %>
       <i class="fa-solid fa-house" style="color: #ffffff;"></i>
     <% end %>
 
@@ -29,7 +29,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Dashboard", "#", class: "dropdown-item" %>
-              <%= link_to "My Rents", "#", class: "dropdown-item" %>
+              <%= link_to "My Rents", new_watch_path, class: "dropdown-item" %>
               <%= link_to "My Watches", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
