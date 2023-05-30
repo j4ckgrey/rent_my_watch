@@ -12,7 +12,7 @@
       <% @watches.each do |watch| %>
         <div class="col-6 col-sm-4 d-flex justify-content-center">
           <div class="p-3 text-center">
-            <img src="https://wempe-media.com/media/image/m126619lb-0003_wempe_02.png?id=901573bcdd0049eb6413d02cdd15cab7" alt="Test-Image" class="img-thumbnail">
+            <%= cl_image_tag watch.photo.key, alt:"Test-Image", class:"img-thumbnail" if watch.photo.attached? %>
             <%= link_to watch.name, watch_path(watch) %>
           </div>
         </div>
