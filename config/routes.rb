@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :watches do
-    resources :rentals, only: [:new, :create]
+    resources :rentals, only: %i[new create]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get "/dashboard", to: "pages#dashboard"
