@@ -10,7 +10,7 @@
         <div class="card-body">
           <h5><%=watch.name%></h5>
           <%=watch.brand%> <%=" "%> <%=watch.model%>
-          <p class="card-text py-3"><%="Pass the watch description by watch.description"[0, 50]%></p>
+          <p class="card-text py-3"><%=watch.description[0, 50]%></p>
           <%= link_to "Show Me!", watch_path(watch), class:"btn btn-primary" %>
         </div>
       </div>
