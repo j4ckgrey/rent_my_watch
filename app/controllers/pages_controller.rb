@@ -1,6 +1,14 @@
 class PagesController < ApplicationController
   def home
-    @watches = Watch.all
+    if current_user.nil?
+      @watches = Watch.all
+    else
+      @pick = []
+      @watches = Watch.all
+      @watches.each do |watch|
+        @pick << watch if watch.user_id != current_user.id
+      end
+    end
   end
 
   def dashboard
