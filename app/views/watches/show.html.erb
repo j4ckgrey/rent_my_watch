@@ -26,7 +26,10 @@
     </div>
     <div class="col border rounded text-center bg-light d-flex flex-column ">
       <h1><%= @watch.name %></h1>
-      <h2><%= @watch.model %> - <%= @watch.brand %></h2>
+      <h2><%= @watch.model %></h2>
+      <h2><%= @watch.brand %></h2>
+      <h2>Rent this watch for only <%= @watch.price %>,00€ a week</h2>
+
       <p><%= @watch.description %></p>
       <div class="btn-group" role="group" aria-label="Basic example">
       <% if current_user == @watch.user %>
