@@ -13,6 +13,7 @@ class WatchesController < ApplicationController
 
   def create
     @watch = Watch.new(watch_params)
+    @watch.user = current_user
     if @watch.save
       redirect_to watch_path(@watch)
     else
@@ -30,5 +31,5 @@ end
 private
 
 def watch_params
-  params.require(:watch).permit(:name, :model, :brand, :photo, :description)
+  params.require(:watch).permit(:name, :model, :brand, :description, photos: [])
 end
