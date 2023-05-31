@@ -1,4 +1,5 @@
 class WatchesController < ApplicationController
+  before_action :set_watch, only: %i[edit]
   def index
     @watches = Watch.all
   end
@@ -26,10 +27,17 @@ class WatchesController < ApplicationController
     @watch.destroy
     redirect_to root_path, status: :see_other
   end
+
+  def edit
+  end
 end
 
 private
 
 def watch_params
   params.require(:watch).permit(:name, :model, :brand, :description, photos: [])
+end
+
+def set_watch
+  @watch = Watch.find(params[:id])
 end

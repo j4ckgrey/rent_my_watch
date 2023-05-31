@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <h1>Edit this watch</h1>
+      <%= simple_form_for(@watch) do |f| %>
+        <%= f.input :name %>
+        <%= f.input :model %>
+        <%= f.input :brand %>
+        <%= f.input :description, as: :text %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.submit class: 'btn btn-primary mb-5' %>
+      <% end %>
+    </div>
+  </div>
+</div>
