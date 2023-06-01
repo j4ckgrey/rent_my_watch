@@ -9,6 +9,7 @@ class RentalsController < ApplicationController
     @watch = Watch.find(params[:watch_id])
     @rental.watch = @watch
     @rental.user = current_user
+    @rental.status = "pending"
     if @rental.save
       redirect_to dashboard_path
     else
@@ -17,7 +18,16 @@ class RentalsController < ApplicationController
   end
 
   def update
-    @rental
+    @rental = Rental.find(params[:id])
+    @rental.status = (params[:rental][:status])
+    @rental.save
+    redirect_to rental_requests_path, status: :see_other
+  end
+
+  def destroy
+    @watch = Watch.find(params[:id])
+    @watch.destroy
+    redirect_to rental_requests_path, status: :see_other
   end
 
   private
