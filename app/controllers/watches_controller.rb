@@ -14,6 +14,10 @@ class WatchesController < ApplicationController
   def create
     @watch = Watch.new(watch_params)
     @watch.user = current_user
+    # if @watch.photos[0] == ""
+    #   image_path = "assets/images/default.png"
+    #   @watch.photos[0] = image_path
+    # end
     if @watch.save
       redirect_to watch_path(@watch)
     else
