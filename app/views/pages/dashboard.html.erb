@@ -14,7 +14,7 @@
                     <h5><%=watch.name%></h5>
                     <p><%=watch.brand%> <%=watch.model%></p>
                     <%if !watch.rentals.empty?%>
-                      <p class="card-text py-3"><%=watch.rentals.last.start_date%>-<%=watch.rentals.last.end_date%></p>
+                      <p class="card-text py-3"><%=watch.rentals.last.start_date%> - <%=watch.rentals.last.end_date%></p>
                     <%end%>
                     <%= link_to "Show Me!", watch_path(watch), class:"btn btn-primary" %>
                   </div>
@@ -27,7 +27,6 @@
           </div>
         </div>
       <% end %>
-
     </div>
 
   </div>

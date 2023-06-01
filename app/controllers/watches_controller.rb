@@ -11,6 +11,11 @@ class WatchesController < ApplicationController
     @watch = Watch.new
   end
 
+  def toggle_available_status
+    @available = false
+    @available.toggle!(:enabled)
+  end
+
   def create
     @watch = Watch.new(watch_params)
     @watch.user = current_user
