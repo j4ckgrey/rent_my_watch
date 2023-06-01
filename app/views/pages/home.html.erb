@@ -1,21 +1,55 @@
-<div class=" container bg-light py-4">
+<div class=" bg-light pt-5">
   <h1 class ="text-center"><span data-controller="typed-js"></h1>
 <div>
 
-<div class ="py-5">
+<% if user_signed_in? %>
+  <div class ="py-5">
   <div class="row justify-content-center">
-    <% @watches.each do |watch| %>
+    <% @pick.each do |watch| %>
       <div class="card col-3 text-center m-3">
-        <img class="card-img-top py-3" src="https://wempe-media.com/media/image/m126619lb-0003_wempe_02.png?id=901573bcdd0049eb6413d02cdd15cab7" alt="Card image cap">
+
+        <%# <img class="card-img-top py-3" src="https://wempe-media.com/media/image/m126619lb-0003_wempe_02.png?id=901573bcdd0049eb6413d02cdd15cab7" alt="Card image cap"> %>
+        <%= render "shared/carousel", watch: watch %>
+
+
         <div class="card-body">
-          <h5><%=watch.name%></h5>
+          <h5 class="fs-3"><%=watch.name%></h5>
           <%=watch.brand%> <%=" "%> <%=watch.model%>
           <p class="card-text py-3"><%=watch.description[0, 50]%></p>
-          <%= link_to "Show Me!", watch_path(watch), class:"btn btn-primary" %>
+          <div class="btn btn-primary">
+            <%= link_to "Show Me!", watch_path(watch), class: "text-white" %>
+          </div>
         </div>
       </div>
       <% end %>
     </div>
     </div>
   </div>
-</div>
+  </div>
+<% else %>
+  <div class ="py-5">
+    <div class="row justify-content-center">
+      <% @watches.each do |watch| %>
+        <div class="card col-3 text-center m-3">
+
+          <%# <img class="card-img-top py-3" src="https://wempe-media.com/media/image/m126619lb-0003_wempe_02.png?id=901573bcdd0049eb6413d02cdd15cab7" alt="Card image cap"> %>
+
+          
+          <%= render "shared/carousel", watch: watch %>
+
+
+          <div class="card-body">
+            <h5 class="fs-3"><%=watch.name%></h5>
+            <%=watch.brand%> <%=" "%> <%=watch.model%>
+            <p class="card-text py-3"><%=watch.description[0, 50]%></p>
+            <div class="btn btn-primary">
+              <%= link_to "Show Me!", watch_path(watch), class: "text-white" %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      </div>
+    </div>
+  </div>
+<% end %>
