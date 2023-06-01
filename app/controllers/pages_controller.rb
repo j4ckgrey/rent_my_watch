@@ -33,6 +33,7 @@ class PagesController < ApplicationController
     @user = current_user
     @mywatches = current_user.watches
     @myrentals = current_user.rentals
+    
   end
 
   def rental_requests
