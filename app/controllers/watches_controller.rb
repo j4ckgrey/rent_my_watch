@@ -1,11 +1,12 @@
 class WatchesController < ApplicationController
-  before_action :set_watch, only: %i[edit]
+  before_action :set_watch, only: %i[edit update]
   def index
     @watches = Watch.all
   end
 
   def show
     @watch = Watch.find(params[:id])
+    @rental = Rental.new
   end
 
   def new
@@ -29,6 +30,14 @@ class WatchesController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    if @watch.update(watch_params)
+      redirect_to watch_path(@watch)
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 end
 
