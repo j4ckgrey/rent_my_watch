@@ -1,13 +1,13 @@
 <h1 class="text-center"><%= "You requests will appear here" %></h1>
-<% if @rental.status == "pending" %>
-  <% @watches.each do |watch| %>
-    <p><%= watch.name %></p>
-    <ul>
-      <% watch.rentals.each do |request| %>
-        <li><%= request.user.email %> has requested <%= watch.name %> <%= request.status %></li>
-        <%= link_to "Click here to confirm", rental_path(request, rental: {status: 'confirmed'}), data: {"turbo-method": :patch} %>
-        <%= link_to "Click here to decline", rental_path(request, rental: {status: 'declined'}), data: {"turbo-method": :patch} %>
-      <% end %>
-    </ul>
-  <% end %>
+<% @watches.each do |watch| %>
+    <% watch.rentals.each do |request| %>
+      <div class="card-body rounded border">
+        <% if request.status == 'pending' %>
+          <p><%= request.user.email %> has requested to rent the Watch <%= watch.name %></p>
+          <%= request.status %>
+          <%= link_to "Click here to confirm", rental_path(request, rental: {status: 'confirmed'}), data: {"turbo-method": :patch}, class:"btn btn-primary btn-sm" %>
+          <%= link_to "Click here to decline", rental_path(request, rental: {status: 'declined'}), data: {"turbo-method": :patch}, class:"btn btn-secondary btn-sm" %>
+        <% end %>
+      </div>
+    <% end %>
 <% end %>
