@@ -53,8 +53,8 @@
       </div>
       <div class="modal-body">
         <%= simple_form_for [@watch, @rental] do |f| %>
-          <%= f.input :start_date %>
-          <%= f.input :end_date %>
+          <%= f.input :start_date, as: :date, html5: true %>
+          <%= f.input :end_date, as: :date, html5: true %>
           <div class="modal-footer">
           <%= f.submit class: 'btn btn-primary' %>
         <% end %>

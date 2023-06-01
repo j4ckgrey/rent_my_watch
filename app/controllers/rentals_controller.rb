@@ -16,6 +16,10 @@ class RentalsController < ApplicationController
     end
   end
 
+  def update
+    @rental
+  end
+
   private
 
   def rental_params
