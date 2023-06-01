@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema[7.0].define(version: 2023_06_01_122517) do
 
   # These are extensions that must be enabled in order to support this database
@@ -50,6 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_01_122517) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "status"
     t.index ["user_id"], name: "index_rentals_on_user_id"
     t.index ["watch_id"], name: "index_rentals_on_watch_id"
   end
@@ -77,7 +79,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_01_122517) do
     t.text "description"
     t.bigint "user_id"
     t.integer "price"
-    t.boolean "status"
     t.index ["user_id"], name: "index_watches_on_user_id"
   end
 
