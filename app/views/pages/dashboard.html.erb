@@ -1,8 +1,7 @@
+<%= link_to "click here to view your rent requests", rental_requests_path %>
 <div id="carouselExample" class="carousel carousel-dark slide">
-  <%= link_to "click here to view your rent requests", rent_requests_path %>
   <h1 class="text-center mt-3">Your Watch Collection</h1>
   <div class="carousel-inner">
-
     <div class="container">
       <% @mywatches.each_slice(3) do |watchs| %>
         <div class="carousel-item <%= 'active' if watchs.first == @mywatches.first  %>">
