@@ -21,7 +21,7 @@
                 </div>
               </div>
             <% end %>
-            <% (3 - watchs.length).times do %>
+            <% (watchs.length -1).times do %>
               <div class="card"></div>
             <% end %>
           </div>
@@ -53,8 +53,8 @@
                 <div class="card text-center m-3">
                   <img class="card-img-top py-3" src="https://wempe-media.com/media/image/m126619lb-0003_wempe_02.png?id=901573bcdd0049eb6413d02cdd15cab7" alt="Card image cap">
                   <div class="card-body">
-                    <h5><%=watch.name%></h5>
-                    <p><%=watch.brand%> <%=watch.model%></p>
+                    <h5><%= watch.name %></h5>
+                    <p><%= watch.brand %> <%= watch.model%></p>
                     <%if !watch.rentals.empty?%>
                       <p class="card-text py-3"><%=watch.rentals.last.start_date%>-<%=watch.rentals.last.end_date%></p>
                     <%end%>
@@ -63,7 +63,7 @@
                 </div>
               </div>
             <% end %>
-            <% (3 - watchs.length).times do %>
+            <% (watchs.length - 1).times do %>
               <div class="card"></div>
             <% end %>
           </div>
