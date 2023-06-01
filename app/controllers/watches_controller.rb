@@ -1,6 +1,6 @@
 class WatchesController < ApplicationController
   before_action :set_watch, only: %i[edit]
-  
+
   def show
     @watch = Watch.find(params[:id])
   end
