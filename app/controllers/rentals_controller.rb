@@ -11,7 +11,7 @@ class RentalsController < ApplicationController
     @rental.user = current_user
     @rental.status = "pending"
     watch_owner = @watch.user
-    watch_owner.increment!(:notification)
+    watch_owner.notification += 1
     if @rental.save
       redirect_to dashboard_path
     else
@@ -22,6 +22,7 @@ class RentalsController < ApplicationController
   def update
     @rental = Rental.find(params[:id])
     @rental.status = (params[:rental][:status])
+    current_user.notification -= 1
     @rental.save
     redirect_to rental_requests_path, status: :see_other
   end

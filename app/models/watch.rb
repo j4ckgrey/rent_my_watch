@@ -1,6 +1,6 @@
 class Watch < ApplicationRecord
   has_many_attached :photos
-  has_many :rentals
+  has_many :rentals, dependent: :destroy
   belongs_to :user
 
   include PgSearch::Model
