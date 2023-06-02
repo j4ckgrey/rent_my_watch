@@ -1,7 +1,9 @@
-<div class=" bg-light pt-5">
-  <h1 class ="text-center"><span data-controller="typed-js"></h1>
-  <div>
-    <% if user_signed_in? %>
+<h1 class ="text-center"><span data-controller="typed-js"></h1>
+<div style="margin:15%;">
+  <% if user_signed_in? %>
+    <%if @pick.empty?%>
+      <p class="text-center">There are no watches to rent</p>
+    <%else%>
       <div class ="py-5">
         <div class="row justify-content-center">
           <% @pick.each do |watch| %>
@@ -19,7 +21,11 @@
           <% end %>
         </div>
       </div>
-    <% else %>
+    <%end%>
+  <% else %>
+    <%if @watches.empty?%>
+      <p class="text-center">There are no watches to rent</p>
+    <%else%>
       <div class ="py-5">
         <div class="row justify-content-center">
           <% @watches.each do |watch| %>
@@ -37,6 +43,6 @@
           <% end %>
         </div>
       </div>
-    <% end %>
-  </div>
+    <%end%>
+  <% end %>
 </div>
