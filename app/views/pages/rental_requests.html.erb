@@ -1,13 +1,22 @@
-<h1 class="text-center"><%= "You requests will appear here" %></h1>
-<% @watches.each do |watch| %>
-    <% watch.rentals.each do |request| %>
-      <div class="card-body rounded border">
-        <% if request.status == 'pending' %>
-          <p><%= request.user.email %> has requested to rent the Watch <%= watch.name %></p>
-          <%= request.status %>
-          <%= link_to "Click here to confirm", rental_path(request, rental: {status: 'confirmed'}), data: {"turbo-method": :patch}, class:"btn btn-primary btn-sm" %>
-          <%= link_to "Click here to decline", rental_path(request, rental: {status: 'declined'}), data: {"turbo-method": :patch}, class:"btn btn-secondary btn-sm" %>
-        <% end %>
-      </div>
+<div class="container">
+  <div class="row mb-5 py-3">
+    <h1 class="text-center"><%= "You requests will appear here" %></h1>
+    <div class="col">
+    <% @watches.each do |watch| %>
+      <% watch.rentals.each do |request| %>
+        <div class="card-body rounded border bg-light">
+          <% if request.status == 'pending' %>
+            <div class="row px-5 py-3">
+              <div class="col fw-bold"><p>User: <%= request.user.email %> has requested to rent your ad: <%= watch.name %>
+                <p class="badge bg-warning text-dark"><%= request.status%></p></p></div>
+                <div class="col-4">
+                <%= link_to "Confirm", rental_path(request, rental: {status: 'confirmed'}), data: {"turbo-method": :patch}, class:"btn btn-primary btn-sm" %>
+              <%= link_to "Decline", rental_path(request, rental: {status: 'declined'}), data: {"turbo-method": :patch}, class:"btn btn-secondary btn-sm" %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
-<% end %>
+    </div>
+  </div>
+</div>
