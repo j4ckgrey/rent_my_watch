@@ -1,7 +1,7 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-      <h1>Create a new watch</h1>
+<div class="container mt-5">
+  <div class="row justify-content-md-center">
+
+      <h1 class="text-center">Create a new watch</h1>
       <%= simple_form_for @watch do |f| %>
         <%= f.input :name %>
         <%= f.input :model %>
@@ -11,6 +11,6 @@
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <%= f.submit class: 'btn btn-primary mb-5' %>
       <% end %>
-    </div>
+
   </div>
 </div>
