@@ -5,7 +5,7 @@
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
   <div class="carousel-inner">
-    <%if watch.photos.present?%>
+    <% if watch.photos.present? %>
       <% watch.photos.each do |photo| %>
         <div class="carousel-item d-flex justify-content-center <%= "active" if photo == watch.photos.first %>">
           <%= cl_image_tag photo.key, height: 400, width: 400, crop: :fill, class:"d-block img-thumbnail my-5"%>
