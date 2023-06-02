@@ -10,7 +10,8 @@ class RentalsController < ApplicationController
     @rental.watch = @watch
     @rental.user = current_user
     @rental.status = "pending"
-    @watch.user.notification += 1
+    watch_owner = @watch.user
+    watch_owner.increment!(:notification)
     if @rental.save
       redirect_to dashboard_path
     else
