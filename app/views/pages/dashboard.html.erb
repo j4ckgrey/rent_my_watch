@@ -1,79 +1,50 @@
-<%= link_to "click here to view your rent requests", rental_requests_path %>
-
-<div id="carouselExample" class="carousel carousel-dark slide my-3">
-  <h1 class="text-center mt-3">Your Watch Collection</h1>
-  <div class="carousel-inner">
-    <div class="container">
-      <% @mywatches.each_slice(3) do |watchs| %>
-        <div class="carousel-item <%= 'active' if watchs.first == @mywatches.first  %>">
-          <div class="card-group">
-            <% watchs.each do |watch| %>
-              <div class="card">
-                <div class="text-center m-3">
-                  <img class="card-img-top py-3" src="https://wempe-media.com/media/image/m126619lb-0003_wempe_02.png?id=901573bcdd0049eb6413d02cdd15cab7" alt="Card image cap">
-                  <div class="card-body">
-                    <h5><%= watch.name %></h5>
-                    <p><%= watch.brand %> <%= watch.model %></p>
-                    <% if watch.rentals.any? %>
-                      <p class="card-text py-3"><%= watch.rentals.last.start_date %> - <%= watch.rentals.last.end_date %></p>
-                    <% end %>
-                    <%= link_to "Show Me!", watch_path(watch), class: "btn btn-primary" %>
-                  </div>
-                </div>
+<div class="container p-5">
+  <div class="py-5 text-center">
+    <h1>Your Watch Collection</h1>
+    <% if @mywatches.empty? %>
+      <p>You have not rented a watch yet</p>
+    <% else %>
+      <div class="row justify-content-center">
+        <% @mywatches.each do |watch| %>
+          <div class="card col-3 text-center m-3">
+            <%= render "shared/carousel", watch: watch %>
+            <div class="card-body">
+              <h5 class="fs-3"><%= watch.name %></h5>
+              <%= watch.brand %> <%= watch.model %>
+              <p class="card-text py-3"><%= watch.description[0, 50] %></p>
+              <% if watch.rentals.any? %>
+                  <p class="card-text py-3"><%= watch.rentals.last.start_date %> - <%= watch.rentals.last.end_date %></p>
+                <% end %>
+              <div class="btn btn-primary">
+                <%= link_to "Show Me!", watch_path(watch), class: "text-white" %>
               </div>
-            <% end %>
-            <% (3 - watchs.length).times do %>
-              <div class="card"></div>
-            <% end %>
+            </div>
           </div>
-        </div>
-      <% end %>
-    </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
 
-<div id="carouselExample2" class="carousel carousel-dark slide my-3">
-  <h1 class="text-center mt-3">Your Rents</h1>
-  <div class="carousel-inner">
-    <div class="container">
-      <% @myrentals.each_slice(3) do |rentals| %>
-        <div class="carousel-item <%= 'active' if rentals.first == @myrentals.first  %>">
-          <div class="card-group">
-            <% rentals.each do |rental| %>
-              <div class="card">
-                <div class="text-center m-3">
-                  <img class="card-img-top py-3" src="https://wempe-media.com/media/image/m126619lb-0003_wempe_02.png?id=901573bcdd0049eb6413d02cdd15cab7" alt="Card image cap">
-                  <div class="card-body">
-                    <h5><%= rental.watch.name %></h5>
-                    <p><%= rental.watch.brand %> <%= rental.watch.model %></p>
-                    <p class="card-text py-3"><%= rental.start_date %> - <%= rental.end_date %></p>
-                    <%= link_to "Show Me!", watch_path(rental.watch), class: "btn btn-primary" %>
-                  </div>
-                </div>
+  <div class="py-5 text-center">
+    <h1>Your Rentals</h1>
+    <% if @myrentals.empty? %>
+      <P>You have not rented a watch yet</P>
+    <% else %>
+      <div class="row justify-content-center">
+        <% @myrentals.each do |watch| %>
+          <div class="card col-3 text-center m-3">
+            <%= render "shared/carousel", watch: watch %>
+            <div class="card-body">
+              <h5 class="fs-3"><%= watch.name %></h5>
+              <%= watch.brand %> <%= watch.model %>
+              <p class="card-text py-3"><%= watch.description[0, 50] %></p>
+              <div class="btn btn-primary">
+                <%= link_to "Show Me!", watch_path(watch), class: "text-white" %>
               </div>
-            <% end %>
-            <% (3 - rentals.length).times do %>
-              <div class="card"></div>
-            <% end %>
+            </div>
           </div>
-        </div>
-      <% end %>
-    </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample2" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample2" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
 </div>

@@ -1,27 +1,16 @@
 class PagesController < ApplicationController
   def home
+    @user = current_user
     if current_user.nil?
       @watches = Watch.all
       if params[:query].present?
-        sql_subquery = <<~SQL
-          watches.name @@ :query
-          OR watches.brand @@ :query
-          OR watches.model @@ :query
-          OR watches.description @@ :query
-        SQL
-        @watches = @watches.where(sql_subquery, query: params[:query])
+        @watches = @watches.watch_search(params[:query])
       end
     else
       @pick = []
       @watches = Watch.all
       if params[:query].present?
-        sql_subquery = <<~SQL
-          watches.name @@ :query
-          OR watches.brand @@ :query
-          OR watches.model @@ :query
-          OR watches.description @@ :query
-        SQL
-        @watches = @watches.where(sql_subquery, query: params[:query])
+        @watches = @watches.watch_search(params[:query])
       end
       @watches.each do |watch|
         @pick << watch if watch.user_id != current_user.id

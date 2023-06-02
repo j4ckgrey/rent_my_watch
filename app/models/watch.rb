@@ -5,8 +5,8 @@ class Watch < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :watch_search,
-    against: %i[name brand model],
-    using: {
-      tsearch: { prefix: true } # <-- now `superman batm` will return something!
-    }
+                  against: %i[name brand model],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end

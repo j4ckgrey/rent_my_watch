@@ -4,7 +4,6 @@
       <%= link_to root_path, class: "navbar-brand" do %>
         <i class="bi bi-watch text-white ps-4" style="font-size: 25px"></i>
       <% end %>
-
       <%= link_to root_path, class: "navbar-brand ps-5" do %>
         <i class="fa-solid fa-house" style="color: #ffffff;"></i>
       <% end %>
@@ -18,12 +17,8 @@
         <% end %>
       </div>
     </div>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-
-
-
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
