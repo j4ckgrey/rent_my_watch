@@ -1,43 +1,43 @@
 <div class=" bg-light pt-5">
   <h1 class ="text-center"><span data-controller="typed-js"></h1>
-<div>
-<div class ="py-5">
-  <div class="row justify-content-center">
-    <% @pick.each do |watch| %>
-      <div class="card col-3 text-center m-3">
-        <%= render "shared/carousel", watch: watch %>
-        <div class="card-body">
-          <h5 class="fs-3"><%=watch.name%></h5>
-          <%=watch.brand%> <%=watch.model%>
-          <p class="card-text py-3"><%=watch.description[0, 50]%></p>
-          <div class="btn btn-primary">
-            <%= link_to "Show Me!", watch_path(watch), class: "text-white" %>
-          </div>
-        </div>
-      </div>
-      <% end %>
-    </div>
-    </div>
-  </div>
-  </div>
-<% else %>
-  <div class ="py-5">
-    <div class="row justify-content-center">
-      <% @watches.each do |watch| %>
-        <div class="card col-3 text-center m-3">
-          <%= render "shared/carousel", watch: watch %>
-          <div class="card-body">
-            <h5 class="fs-3"><%=watch.name%></h5>
-            <%=watch.brand%> <%=watch.model%>
-            <p class="card-text py-3"><%=watch.description[0, 50]%></p>
-            <div class="btn btn-primary">
-              <%= link_to "Show Me!", watch_path(watch), class: "text-white" %>
+
+  <div>
+    <% if user_signed_in? %>
+      <div class ="py-5">
+        <div class="row justify-content-center">
+          <% @pick.each do |watch| %>
+            <div class="card col-3 text-center m-3">
+              <%= render "shared/carousel", watch: watch %>
+              <div class="card-body">
+              <h5 class="fs-3"><%=watch.name%></h5>
+              <%=watch.brand%> <%=watch.model%>
+              <p class="card-text py-3"><%=watch.description[0, 50]%></p>
+              <div class="btn btn-primary">
+                <%= link_to "Show Me!", watch_path(watch), class: "text-white" %>
+              </div>
+              </div>
             </div>
-          </div>
+          <% end %>
         </div>
-        <% end %>
       </div>
+    <% else %>
+      <div class ="py-5">
+        <div class="row justify-content-center">
+          <% @watches.each do |watch| %>
+            <div class="card col-3 text-center m-3">
+              <%= render "shared/carousel", watch: watch %>
+              <div class="card-body">
+                <h5 class="fs-3"><%=watch.name%></h5>
+                <%=watch.brand%> <%=watch.model%>
+                <p class="card-text py-3"><%=watch.description[0, 50]%></p>
+                <div class="btn btn-primary">
+                  <%= link_to "Show Me!", watch_path(watch), class: "text-white" %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
-<% end %>
+</div>

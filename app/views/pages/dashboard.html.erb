@@ -9,7 +9,21 @@
             <% watchs.each do |watch| %>
               <div class="card">
                 <div class="card text-center m-3">
-                  <img class="card-img-top py-3" src="https://wempe-media.com/media/image/m126619lb-0003_wempe_02.png?id=901573bcdd0049eb6413d02cdd15cab7" alt="Card image cap">
+                  <div class="card-img-top py-3">
+                    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                      <div class="carousel-inner">
+                        <%if watch.photos.present?%>
+                          <% watch.photos.each do |photo| %>
+                          <div class="carousel-item d-flex justify-content-center <%= "active" if photo == watch.photos.first %>">
+                            <%= cl_image_tag photo.key, height: 400, width: 400, crop: :fill, class:"d-block img-thumbnail my-5"%>
+                          </div>
+                          <%end%>
+                        <% else %>
+                          <%= image_tag "default1.png", height: "400", width: "400", class:"d-block img-thumbnail my-5"%>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
                   <div class="card-body">
                     <h5><%=watch.name%></h5>
                     <p><%=watch.brand%> <%=watch.model%></p>
