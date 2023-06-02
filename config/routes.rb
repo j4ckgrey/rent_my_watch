@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get "/rental_requests", to: "pages#rental_requests"
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :brands
 end
