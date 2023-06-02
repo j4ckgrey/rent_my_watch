@@ -31,15 +31,15 @@
       <P>You have not rented a watch yet</P>
     <% else %>
       <div class="row justify-content-center">
-        <% @myrentals.each do |watch| %>
+        <% @myrentals.each do |rental| %>
           <div class="card col-3 text-center m-3">
-            <%= render "shared/carousel", watch: watch %>
+            <%= render "shared/carousel", watch: rental.watch %>
             <div class="card-body">
-              <h5 class="fs-3"><%= watch.name %></h5>
-              <%= watch.brand %> <%= watch.model %>
-              <p class="card-text py-3"><%= watch.description[0, 50] %></p>
+              <h5 class="fs-3"><%= rental.watch.name %></h5>
+              <%= rental.watch.brand %> <%= rental.watch.model %>
+              <p class="card-text py-3"><%= rental.watch.description[0, 50] %></p>
               <div class="btn btn-primary">
-                <%= link_to "Show Me!", watch_path(watch), class: "text-white" %>
+                <%= link_to "Show Me!", watch_path(rental.watch), class: "text-white" %>
               </div>
             </div>
           </div>
